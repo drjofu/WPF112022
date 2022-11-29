@@ -35,13 +35,16 @@
     <TextBlock Text="{Binding Path=Mitarbeiter[0].Name[0]}" Margin="5"/>
     <TextBlock Text="{Binding Mitarbeiter[1].Name}" Margin="5"/>
 
-    <ListBox Name="LB" ItemsSource="{Binding Mitarbeiter}" 
+    <ListBox Name="LB" ItemsSource="{Binding Mitarbeiter}" MaxHeight="400"
              ItemTemplate="{StaticResource PersonTemplate}"/>
 
     <Label Content="{Binding SelectedItem, ElementName=LB}" Margin="5" Background="Salmon"
            ContentTemplate="{StaticResource PersonTemplate}"/>
 
     <Label Content="{Binding SelectedItem, ElementName=LB}" Margin="5" Background="Orange"/>
+
+    <Button Content="Die Jahre vergehen" Margin="5" Click="DieJahreVergehen"/>
+    <Button Content="Neuer Mitarbeiter" Margin="5" Click="NeuerMitarbeiter"/>
 
   </StackPanel>
 </Window>

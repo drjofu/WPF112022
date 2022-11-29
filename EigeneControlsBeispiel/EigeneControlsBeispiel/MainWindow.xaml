@@ -1,0 +1,18 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EigeneControlsBeispiel"
+        xmlns:VerkehrsControls="clr-namespace:VerkehrsControls;assembly=VerkehrsControls" x:Class="EigeneControlsBeispiel.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+  <Grid>
+
+    <VerkehrsControls:Ampel HorizontalAlignment="Left" Margin="90,74,0,0" VerticalAlignment="Top"
+                            Background="#FF3A3434" 
+                            IstRot="{Binding IsChecked, ElementName=checkBox}"/>
+    <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="276,120,0,0" VerticalAlignment="Top"/>
+
+  </Grid>
+</Window>

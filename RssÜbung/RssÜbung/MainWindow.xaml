@@ -13,12 +13,17 @@
       <ColumnDefinition Width="396*"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-      <RowDefinition Height="45*"/>
-      <RowDefinition Height="72*"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
       <RowDefinition Height="84*"/>
       <RowDefinition Height="233*"/>
     </Grid.RowDefinitions>
 
-    <TextBlock Text="{Binding Title.Text}" />
+    <TextBlock Text="{Binding Title.Text}" FontWeight="Bold" FontSize="30"
+               HorizontalAlignment="Center" Grid.ColumnSpan="3"
+               Margin="5"/>
+    <Image Source="{Binding ImageUrl}" Grid.Row="1" Stretch="Uniform" 
+           Width="200" Margin="5"/>
+    
   </Grid>
 </Window>

@@ -26,18 +26,22 @@
       </DataTemplate.Triggers>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type local:Person}" >
+      <TextBlock Text="{Binding Name}"/>
+    </DataTemplate>
+    
   </Window.Resources>
-  <StackPanel>
+  <StackPanel Grid.IsSharedSizeScope="True">
     <TextBlock Text="{Binding Path=Mitarbeiter[0].Name[0]}" Margin="5"/>
     <TextBlock Text="{Binding Mitarbeiter[1].Name}" Margin="5"/>
 
-    <ListBox Name="LB" ItemsSource="{Binding Mitarbeiter}" Grid.IsSharedSizeScope="True"
+    <ListBox Name="LB" ItemsSource="{Binding Mitarbeiter}" 
              ItemTemplate="{StaticResource PersonTemplate}"/>
-
-
 
     <Label Content="{Binding SelectedItem, ElementName=LB}" Margin="5" Background="Salmon"
            ContentTemplate="{StaticResource PersonTemplate}"/>
+
+    <Label Content="{Binding SelectedItem, ElementName=LB}" Margin="5" Background="Orange"/>
 
   </StackPanel>
 </Window>

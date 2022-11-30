@@ -4,15 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EigeneControlsBeispiel"
-        xmlns:VerkehrsControls="clr-namespace:VerkehrsControls;assembly=VerkehrsControls" x:Class="EigeneControlsBeispiel.MainWindow"
+        xmlns:VerkehrsControls="clr-namespace:VerkehrsControls;assembly=VerkehrsControls" 
+  
+        x:Class="EigeneControlsBeispiel.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+  <Window.Resources>
+    <Style x:Key="AmpelStyle1" TargetType="{x:Type VerkehrsControls:Ampel}">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type VerkehrsControls:Ampel}">
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+              <StackPanel>
+                <Rectangle x:Name="PART_LampeRot" Fill="Red" Height="50" Margin="5" Width="50"/>
+                <Rectangle x:Name="PART_LampeGrün" Fill="#FF37F731" Height="50" Margin="5" Width="50"/>
+              </StackPanel>
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Window.Resources>
   <Grid>
 
     <VerkehrsControls:Ampel HorizontalAlignment="Left" Margin="90,74,0,0" VerticalAlignment="Top"
                             Background="#FF3A3434" 
                             IstRot="{Binding IsChecked, ElementName=checkBox}"/>
     <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="276,120,0,0" VerticalAlignment="Top"/>
+    <VerkehrsControls:Ampel Style="{DynamicResource AmpelStyle1}" HorizontalAlignment="Left" Margin="460,74,0,0" VerticalAlignment="Top"
+      Background="#FF3A3434" 
+      IstRot="{Binding IsChecked, ElementName=checkBox}"/>
+    <VerkehrsControls:Ampel HorizontalAlignment="Left" Margin="179,322,0,0" VerticalAlignment="Top"/>
 
   </Grid>
 </Window>

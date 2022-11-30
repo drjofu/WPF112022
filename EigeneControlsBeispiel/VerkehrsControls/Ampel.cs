@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
@@ -34,6 +35,8 @@ namespace VerkehrsControls
   ///     <MyNamespace:CustomControl1/>
   ///
   /// </summary>
+  [TemplatePart(Name = "PART_LampeRot", Type = typeof(Shape))]
+  [TemplatePart(Name = "PART_LampeGrün", Type = typeof(Shape))]
   public class Ampel : Control
   {
     static Ampel()
@@ -53,8 +56,8 @@ namespace VerkehrsControls
     }
 
     // propdp
-
-
+    [Category("Verkehrszeichen")]
+    [Description("Tolle Fußgängerampel")]
     public bool IstRot
     {
       get { return (bool)GetValue(IstRotProperty); }
@@ -63,7 +66,7 @@ namespace VerkehrsControls
 
     // Using a DependencyProperty as the backing store for IstRot.  This enables animation, styling, binding, etc...
     public static readonly DependencyProperty IstRotProperty =
-        DependencyProperty.Register("IstRot", typeof(bool), typeof(Ampel),
+        DependencyProperty.Register(nameof(IstRot), typeof(bool), typeof(Ampel),
           new FrameworkPropertyMetadata(true,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
             OnIstRotChanged));

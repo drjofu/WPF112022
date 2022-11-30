@@ -80,6 +80,9 @@
           <b:InvokeCommandAction Command="{Binding MinusCommand}"/>
         </b:EventTrigger>
       </b:Interaction.Triggers>
+      <b:Interaction.Behaviors>
+        <b:MouseDragElementBehavior/>
+      </b:Interaction.Behaviors>
     </Ellipse>
 
   </Grid>
